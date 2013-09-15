@@ -1,9 +1,7 @@
 <!--
   Section header
-
-  <%@attribute name="id" required="true" %>
 -->
-
+<?jelly escape-by-default='true'?>
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler"
   xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson"
   xmlns:f="/lib/form" xmlns:u="/util">
@@ -30,7 +28,7 @@
     </table>
   </f:entry>
   <f:entry title="${%Health priorities}" description="${%description.health.priorities}">
-    <j:set var="pfx" value="ac-health-${app.getPlugin('analysis-core').newId}"/>
+    <j:set var="pfx" value="ac-health-${h.generateId}"/>
     <f:radio name="${pfx}.thresholdLimit" value="high" checked="${instance.thresholdLimit == 'high'}" title="${%Only priority high}"/>
     <f:radio name="${pfx}.thresholdLimit" value="normal" checked="${instance.thresholdLimit == 'normal'}" title="${%Priorities high and normal}"/>
     <f:radio name="${pfx}.thresholdLimit" value="low" checked="${(instance == null) ? 'true' : instance.thresholdLimit == 'low'}" title="${%All priorities}"/>
