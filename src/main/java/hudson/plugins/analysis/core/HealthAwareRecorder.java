@@ -102,7 +102,7 @@ public abstract class HealthAwareRecorder extends Recorder implements HealthDesc
      */
     // CHECKSTYLE:OFF
     public HealthAwareRecorder(final ConfigurationReference configuration, final String pluginName, final boolean canResolveRelativePaths) {
-        this.pluginName = pluginName;
+        this.pluginName = "[" + pluginName + "] ";
 
         doNotResolveRelativePaths = !canResolveRelativePaths;
         configReference = configuration;
